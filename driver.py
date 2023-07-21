@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 class Driver():
-    def __init__(self):
+    def __init__(self, ui):
         print('Starting instance...')
         load_dotenv()
         self.r_place = 'https://www.reddit.com/r/place'
@@ -56,6 +56,9 @@ class Driver():
         # save username
         self.username = self.driver.find_element(by=By.ID, value='regUsername').get_property('value')
         self.username = str(self.username)
+
+        # notify the ui that about the new data
+        ui.update_user(mail=self.email, username=self.username)
 
 
     def end(self):
