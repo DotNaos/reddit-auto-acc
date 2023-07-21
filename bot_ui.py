@@ -20,18 +20,20 @@ class BotUI(ctk.CTk):
         self.mainloop()
 
     def show_ui(self):
+        # sidebar on the left
         row1 = ctk.CTkFrame(self)
         row1.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
-        # sidebar on the left
-        self.grid_columnconfigure(1, weight=1)
-
         side_bar = ctk.CTkFrame(row1)
         # side_bar.pack(padx=10, pady=5, fill=tk.BOTH)
-        side_bar.grid(row=0, column=0, sticky=tk.N + tk.S + tk.E + tk.W, padx=10, pady=10)
+        side_bar.grid(row=0, column=0,
+                      sticky=tk.N + tk.S + tk.E + tk.W,
+                      padx=10, pady=10)
 
         start_instance_btn = ctk.CTkButton(side_bar, text="Start Instance", command=self.start_instance)
-        start_instance_btn.grid(row=0, column=0, sticky=tk.N + tk.S + tk.E + tk.W, padx=10, pady=10)
+        start_instance_btn.grid(row=0, column=0,
+                                sticky=tk.N + tk.S + tk.E + tk.W,
+                                padx=10, pady=10)
 
         save_account_btn = ctk.CTkButton(side_bar, text="Save Account", command=self.save_account)
         save_account_btn.grid(row=1, column=0, sticky=tk.N + tk.S + tk.E + tk.W, padx=10, pady=10)
